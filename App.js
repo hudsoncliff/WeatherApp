@@ -11,9 +11,6 @@ import {
   Text,
   View
 } from 'react-native';
-import Hashes from "jshashes";
-const MD5 = new Hashes.MD5();
-console.log(MD5.hex('Hello'));
 import DeviceInfo from "react-native-device-info";
 
 
@@ -60,3 +57,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+function square(n: number): number {
+  return n * n;
+}
+square("2");
+
+jest.mock('react-native-device-info', () => ({
+  getDeviceLocale: () => 'ja',
+}));
