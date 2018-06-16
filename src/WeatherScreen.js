@@ -7,26 +7,45 @@ import {
     Image,
     ActivityIndicator,
     StyleSheet,
+    FlatList,
  } from 'react-native';
+import ForecastListItem from './ForecastListItem';
 import CurrentWeather from './CurrentWeather';
-import { getCurrentWeather } from './WeatherService';
+import WeatherForecast from './WeatherForecast';
+import { 
+    getCurrentWeather,
+    getWeatherForecast,
+ } from './WeatherService';
 
 type State  = {
     current: ?CurrentWeather,
+    forecasts: WeatherForecast[],
 };
 
 class WeatherScreen extends Component<{}, State> {
     constructor(props: {}) {
         super(props);
-        this.state = { current: null };
+        this.state = { current: null, forecasts: [] };
     }
 
     componentDidMount() {
-        getCurrentWeather('Tokyo')
-        .then(current => {
-            console.log('天気情報の取得完了!');
-            this.setState({current});
-        });
+        const tokyo = 'Fukushima';
+        getCurrentWeather(tokyo)
+            .then(current => this.setState({current}));
+        getWeatherForecast(tokyo)
+            .then(forecasts => 
+        this.setState({ forecasts }));
+    }
+
+    renderForecasts() {
+        return (
+            <FlatList
+                data={this.state.forecasts}
+                renderItem={({ item }) =>
+                    <ForecastListItem item={item} /> }
+                keyExtractor={item => item.date.toString()}
+            />
+        );
     }
 
     render() {
@@ -48,6 +67,7 @@ class WeatherScreen extends Component<{}, State> {
                     source={{ uri: iconURL }}
                     style={styles.icon}
                 />
+                {this.renderForecasts()}
             </View>
         );
     }
