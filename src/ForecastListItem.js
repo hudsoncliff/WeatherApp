@@ -28,7 +28,7 @@ class ForecastListItem extends Component<Props> {
                     {`${item.temperature}℃`}
                 </Text>
                 <Text style={styles.text}>
-                    {`${item_humidity}%`}
+                    {`${item.humidity}%`}
                 </Text>
             </View>
         );
@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         width: 48,
         marginHorizontal: 8,
-        backgroundColor: 'blue',
     },
     icon: {
         width: 48,
