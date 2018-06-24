@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         width: 48,
         marginHorizontal: 8,
+        backgroundColor: 'blue',
     },
     icon: {
         width: 48,

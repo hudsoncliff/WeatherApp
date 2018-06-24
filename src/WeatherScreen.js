@@ -17,9 +17,9 @@ import {
     getWeatherForecast,
  } from './WeatherService';
 
-type State  = {
-    current: ?CurrentWeather,
-    forecasts: WeatherForecast[],
+type State = {
+  current: ?CurrentWeather,
+  forecasts: WeatherForecast[],
 };
 
 class WeatherScreen extends Component<{}, State> {
@@ -29,7 +29,7 @@ class WeatherScreen extends Component<{}, State> {
     }
 
     componentDidMount() {
-        const tokyo = 'Fukushima';
+        const tokyo = 'Tokyo';
         getCurrentWeather(tokyo)
             .then(current => this.setState({current}));
         getWeatherForecast(tokyo)
