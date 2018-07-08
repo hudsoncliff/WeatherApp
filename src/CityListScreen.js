@@ -9,7 +9,7 @@ import {
 import CITIES from './cities.json';
 
 class CityListScreen extends Component<{}> {
-    onPress{item: *} {
+    onPress(item: *) {
         console.log('onPress', item);
     }
 

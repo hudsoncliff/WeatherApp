@@ -10,7 +10,8 @@
 		"jshashes": "^1.0.7",
 		"react": "16.0.0-beta.5",
 		"react-native": "0.49.3",
-		"react-native-device-info": "^0.11.0"
+		"react-native-device-info": "^0.11.0",
+		"react-navigation": "^2.6.2"
 	},
 	"devDependencies": {
 		"babel-jest": "22.4.3",
