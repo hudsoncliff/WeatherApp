@@ -1,7 +1,7 @@
-# WeatherApp
+# WeatherApp  
 
-##セットアップ
+## セットアップ
     npm install
 
-##アプリビルド
+## アプリビルド
     react-native run-ios
