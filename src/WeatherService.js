@@ -5,7 +5,7 @@ import WeatherForecast from './WeatherForecast';
 
 const BASE_URL
  = 'https://api.openweathermap.org/data/2.5/';
-const API_KEY = 'api_key';
+const API_KEY = '35ba49b856df33cb07fe63e41c43d3c6';
 
 function getCurrentWeatherEndpoint(query: string) {
     return `${BASE_URL}weather?q=${query}`
