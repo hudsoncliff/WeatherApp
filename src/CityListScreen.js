@@ -6,17 +6,48 @@ import {
     FlatList,
     StyleSheet,
 } from 'react-native';
+import { type NavigationScreenProp }
+  from 'react-navigation/src/TypeDefinition';
 import CITIES from './cities.json';
+import { getCoordinates } from './GeolocationService';
 
-class CityListScreen extends Component<{}> {
+type Props = {
+    navigation: NavigationScreenProp<*>,
+}
+
+type State = {
+    data: *[],
+};
+
+
+class CityListScreen extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.state = { data: CITIES };
+    }
+
+    componentDidMount() {
+        getCoordinates()
+            .then(({ latitude, longitude }) => {
+                CITIES.unshift({
+                    name: '現在地',
+                    en: '',
+                    latitude,
+                    longitude,
+                });
+                this.setState({ data: CITIES });
+            });
+    }
+
     onPress(item: *) {
-        console.log('onPress', item);
+        const { navigation } = this.props;
+        naviation.navigate('Weather', { city: item });
     }
 
     render() {
         return (
             <FlatList
-            data={CITIES}
+            data={this.state.data}
             keyExtractor={item => item.en}
             renderItem={({ item }) => (
                 <TouchableOpacity
