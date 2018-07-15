@@ -41,7 +41,7 @@ class CityListScreen extends Component<Props, State> {
 
     onPress(item: *) {
         const { navigation } = this.props;
-        naviation.navigate('Weather', { city: item });
+        navigation.navigate('Weather', { city: item });
     }
 
     render() {
