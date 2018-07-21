@@ -7,10 +7,16 @@ const BASE_URL
  = 'https://api.openweathermap.org/data/2.5/';
 const API_KEY = 'api_key';
 
-function getCurrentWeatherEndpoint(query: *) {
-    return `${BASE_URL}weather?q=${query}`
-     + `&appid=${API_KEY}&lang=ja`;
-}
+function getCurrentWeatherEndpoint(city: *) {
+    const { en, latitude, longitude } = city;
+    if (latitude && longitude) {
+      return `${BASE_URL}weather`
+        + `?lat=${latitude}&lon=${longitude}`
+        + `&appid=${API_KEY}&lang=ja`;
+    }
+    return `${BASE_URL}weather?q=${en}`
+    + `&appid=${API_KEY}&lang=ja`;
+  }
 
 function getCurrentWeather(city: *)
     : Promise<CurrentWeather> {
