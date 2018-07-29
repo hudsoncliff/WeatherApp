@@ -21,7 +21,7 @@ class ForecastListItem extends Component<Props> {
                     {item.description}
                 </Text>
                 <Image
-                source ={{ uri: item.iconURL }}
+                source={{ uri: item.iconURL }}
                 style={styles.icon}
                 />
                 <Text style={styles.text}>

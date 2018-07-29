@@ -19,11 +19,11 @@ function getCurrentWeatherEndpoint(city: *) {
   }
 
 function getCurrentWeather(city: *)
-    : Promise<CurrentWeather> {
-        const endpoint = getCurrentWeatherEndpoint(city);
-        return fetch(endpoint)
-        .then(response => response.json())
-        .then(json => new CurrentWeather(json));
+  : Promise<CurrentWeather> {
+  const endpoint = getCurrentWeatherEndpoint(city);
+  return fetch(endpoint)
+    .then(response => response.json())
+    .then(json => new CurrentWeather(json));
 }
 
 function getWeatherForecastEndpoint(city: *) {
@@ -33,7 +33,7 @@ function getWeatherForecastEndpoint(city: *) {
         + `?lat=${latitude}&lon=${longitude}`
         + `&appid=${API_KEY}&lang=ja`;
     }
-    return `${BASE_URL}forecast?q=${city}&appid=${API_KEY}&lang=ja`;
+    return `${BASE_URL}forecast?q=${en}&appid=${API_KEY}&lang=ja`;
   }
   
   
