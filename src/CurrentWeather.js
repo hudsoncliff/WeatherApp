@@ -1,4 +1,5 @@
 // @flow
+
 export default class CurrentWeather {
     main: string;
     iconURL: string;

@@ -9,4 +9,11 @@ it('renders correctly', () => {
   const tree = renderer.create(
     <App />
   );
+  // expect(tree.toJSON()).toMatchSnapshot();
 });
+
+
+
+// jest.mock('react-native-device-info', () => ({
+//   getDeviceLocale: () => 'ja',
+// }));
